@@ -1,0 +1,226 @@
+h1 {
+  letter-spacing: 3px;
+}
+
+h2 {
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.navbar {
+  border-radius: 0;
+}
+
+.btn:active {
+  outline: 0 !important;
+}
+
+.btn:focus {
+  outline: 0 !important;
+}
+
+/*index/login page css*/
+
+.index, .register {
+  background: url("../img/bg.jpg") #041a22 no-repeat 0 0;
+  background-size: 100%;
+}
+
+.login-container {
+  margin-top: 13%;
+}
+
+.user-container .row {
+  display: flex;
+  align-items: center;
+  max-width: 1539px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro h1 {
+  font-size: 50px;
+  color: white;
+}
+
+.intro p {
+  font-size: 25px;
+  color: lightgray;
+}
+
+.user-panel {
+  margin-bottom: 0;
+}
+
+.user-panel h2 {
+  margin: 40px 0 30px 0;
+}
+
+.user-panel a {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.login-form {
+  margin-left: 5%;
+  width: 90%;
+}
+
+.login-form .input-group {
+  margin-bottom: 30px;
+}
+
+.login-form .btn {
+  margin: 20px 0 8px 10%;
+  width: 80%;
+}
+
+/*register page css*/
+
+.register-container {
+  margin-top: 7%;
+}
+
+.register-container .row {
+  margin-bottom: 7%;
+}
+
+.register-container .user-panel h2 {
+  margin: 40px 0 20px 0;
+}
+
+.register-form {
+  margin-left: 8%;
+  width: 84%
+}
+
+.register-form .input-group {
+  margin-bottom: 20px;
+}
+
+.register-form .btn {
+  margin: 20px 0 8px 15%;
+  width: 70%;
+}
+
+/*question page css*/
+
+.question {
+  background: #f2f2f2
+}
+
+.pre-line {
+  white-space: pre-line;
+}
+
+.content {
+  padding: 40px;
+}
+
+.content h2 {
+  margin-top: 50px;
+}
+
+.content button{
+  margin-right: 20px;
+}
+
+.content > form > .form-control {
+  width: 70%;
+  margin-bottom: 40px;
+}
+
+.intro-win {
+  display: none;
+}
+
+.win-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.6;
+}
+
+.content-win {
+  width: 40%;
+  height: 70%;
+  position: fixed;
+  top: 15%;
+  left: 30%;
+}
+
+.article {
+  height: 80%;
+}
+
+.intro-content {
+  position: relative;
+  height: 100%;
+  padding: 5%;
+}
+
+.intro-p {
+  max-height: 85%;
+  overflow-y: scroll;
+}
+
+.intro-content button {
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
+  width: 40%;
+}
+
+@media (max-width: 991px) {
+  .intro h1 {
+    font-size: 40px;
+  }
+
+  .intro p {
+    font-size: 20px;
+  }
+
+  .index, .register {
+    background: #041a22;
+  }
+
+  .user-container .row {
+    display: block;
+  }
+
+  .nav.navbar-nav {
+    float: left !important;
+  }
+
+  .login-container {
+    margin-top: 25px;
+  }
+
+  .intro {
+    margin-bottom: 30px;
+  }
+
+  .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn{
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+  }
+
+  form .btn-lg, .btn-group-lg > .btn{
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+  }
+
+  .register .user-panel {
+    margin-bottom: 40px;
+  }
+}
