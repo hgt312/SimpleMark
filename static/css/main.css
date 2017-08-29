@@ -65,7 +65,8 @@ p {
   margin-bottom: 30px;
 }
 
-.login-form {
+.login-form,
+.index .alert{
   margin-left: 5%;
   width: 90%;
 }
@@ -93,9 +94,10 @@ p {
   margin: 40px 0 20px 0;
 }
 
-.register-form {
+.register-form,
+.register .alert{
   margin-left: 8%;
-  width: 84%
+  width: 84%;
 }
 
 .register-form .input-group {
@@ -134,7 +136,7 @@ p {
   margin-bottom: 40px;
 }
 
-.alert {
+.question .alert {
   width: 70%;
 }
 

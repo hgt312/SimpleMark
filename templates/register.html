@@ -40,26 +40,64 @@
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
             <input type="text" class="form-control" name="username">
           </div>
+        {% if register_form.username.errors %}
+        <div class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ register_form.username.errors }}
+        </div>
+        {% endif %}
           <label>手机:</label>
           <div class="input-group input-group-lg">
             <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
             <input type="text" class="form-control" name="mobile">
           </div>
+        {% if register_form.mobile.errors %}
+        <div class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ register_form.mobile.errors }}
+        </div>
+        {% endif %}
           <label>邮箱:</label>
           <div class="input-group input-group-lg">
             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
             <input type="text" class="form-control" name="email">
           </div>
+        {% if register_form.email.errors %}
+        <div class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ register_form.email.errors }}
+        </div>
+        {% endif %}
           <label>密码:</label>
           <div class="input-group input-group-lg">
             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
             <input type="password" class="form-control" name="password_1">
           </div>
+        {% if register_form.password_1.errors %}
+        <div class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ register_form.password_1.errors }}
+        </div>
+        {% endif %}
           <label>确认密码:</label>
           <div class="input-group input-group-lg">
             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
             <input type="password" class="form-control" name="password_2">
           </div>
+
+          {% if msg == '用户名/邮箱/手机已被注册' %}
+              <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <ul><li>用户名/邮箱/手机已被注册</li></ul>
+              </div>
+          {% endif %}
+          {% if msg == '两次输入密码不相同' %}
+              <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <ul><li>两次输入密码不相同</li></ul>
+              </div>
+          {% endif %}
+
           <input type="submit" class="btn btn-primary btn-lg" value="注册">
           {% csrf_token %}
         </form>
