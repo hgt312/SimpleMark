@@ -134,6 +134,10 @@ p {
   margin-bottom: 40px;
 }
 
+.alert {
+  width: 70%;
+}
+
 .intro-win {
   display: none;
 }
