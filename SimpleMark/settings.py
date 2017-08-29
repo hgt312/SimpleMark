@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
 ]
 
+# 启用自定义用户模型
+AUTH_USER_MODEL = "users.UserProfile"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
