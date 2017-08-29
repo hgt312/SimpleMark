@@ -2,10 +2,12 @@ import os
 
 import django
 
-from pars.models import Paragraph
-
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SimpleMark.settings")
 django.setup()
+
+
+from pars.models import Paragraph
+
 
 
 def main():
