@@ -23,8 +23,8 @@
     </div>
     <div class="collapse navbar-collapse menu">
       <ul class="nav navbar-nav pull-right">
-        <li><a href="{% url 'index' %}">答题</a></li>
-        <li><a href="{% url 'login' %}">登录</a></li>
+        <li><a href="{% url 'question' %}">答题</a></li>
+        <li><a href="{% url 'index' %}">登录</a></li>
         <li><a href="{% url 'register' %}">注册</a></li>
       </ul>
     </div>
@@ -101,7 +101,7 @@
           <input type="submit" class="btn btn-primary btn-lg" value="注册">
           {% csrf_token %}
         </form>
-        <a href="index.html">已有账号</a>
+        <a href="{% url 'index' %}">已有账号</a>
       </div>
       <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2 intro">
         <div>
