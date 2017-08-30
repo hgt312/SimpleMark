@@ -11,9 +11,9 @@ from .forms import LoginForm, RegisterForm
 
 
 # 登陆逻辑
-class LoginView(View):
+class IndexView(View):
     def get(self, request):
-        return render(request, "login.html", {})
+        return render(request, "index.html", {})
 
     def post(self, request):
         login_form = LoginForm(request.POST)
@@ -23,11 +23,11 @@ class LoginView(View):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                return HttpResponseRedirect('/')
+                return HttpResponseRedirect('/question/')
             else:
-                return render(request, "login.html", {"msg": "用户名或密码错误"})
+                return render(request, "index.html", {"msg": "用户名或密码错误"})
         else:
-            return render(request, "login.html", {"msg": "用户名或密码不可为空"})
+            return render(request, "index.html", {"msg": "用户名或密码不可为空"})
 
 
 # 注册逻辑
@@ -55,7 +55,7 @@ class RegisterView(View):
                     user_profile.mobile = mobile
                     user_profile.set_password(password_1)
                     user_profile.save()
-                    return HttpResponseRedirect("/login/")
+                    return HttpResponseRedirect("/")
         else:
             return render(request, "register.html", {"register_form": register_form})
 
@@ -64,4 +64,4 @@ class RegisterView(View):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        return HttpResponseRedirect(request.META.get('/', '/'))

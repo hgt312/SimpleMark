@@ -10,14 +10,14 @@ from .forms import ResultForm
 # Create your views here.
 
 
-class IndexView(View):
+class QuestionView(View):
     def get(self, request):
         last = Paragraph.objects.count() - 1
         while True:
             index = randint(0, last)
             paragraph = Paragraph.objects.all()[index]
             if paragraph.count < 10:
-                return render(request, "index.html", {"paragraph": paragraph})
+                return render(request, "question.html", {"paragraph": paragraph})
 
     def post(self, request):
         if request.user.is_authenticated():
@@ -35,10 +35,10 @@ class IndexView(View):
                     result.user = request.user
                     result.paragraph = paragraph
                     result.save()
-                    return HttpResponseRedirect("/")
+                    return HttpResponseRedirect("/question/")
                 else:
-                    return render(request, "index.html", {"msg": "答案必须在文段中出现", "paragraph": paragraph})
+                    return render(request, "question.html", {"msg": "答案必须在文段中出现", "paragraph": paragraph})
             else:
-                return render(request, "index.html", {"msg": "问题或答案不可为空", "paragraph": paragraph})
+                return render(request, "question.html", {"msg": "问题或答案不可为空", "paragraph": paragraph})
         else:
-            return HttpResponseRedirect('/login/')
+            return HttpResponseRedirect('/')
