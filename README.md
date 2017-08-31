@@ -1,6 +1,6 @@
 # SimpleMark
 
-这是我和[Gotcha](https://github.com/heyGotcha)一起做的一个简单的文本数据标注网站，用的框架是Django。
+这是我和[Gotcha](https://github.com/heyGotcha)一起做的一个简单的文本数据标注网站，使用django1.11。
 python版本是3.6（别的版本没试过，不过应该也能用）
 
 ## 使用方法（生产环境）
