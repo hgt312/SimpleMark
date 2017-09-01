@@ -227,4 +227,21 @@ p {
   .register .user-panel {
     margin-bottom: 40px;
   }
+
+  .register-form{
+    margin-left: 5%;
+    width: 90%;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .content > form > .form-control {
+    width: 100%;
+  }
+
+  .question .alert {
+    width: 100%;
+  }
 }
