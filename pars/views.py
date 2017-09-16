@@ -1,5 +1,3 @@
-from random import randint
-
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.http import HttpResponseRedirect
@@ -12,12 +10,17 @@ from .forms import ResultForm
 
 class QuestionView(View):
     def get(self, request):
-        last = Paragraph.objects.count() - 1
-        while True:
-            index = randint(0, last)
-            paragraph = Paragraph.objects.all()[index]
-            if paragraph.count < 10:
-                return render(request, "question.html", {"paragraph": paragraph})
+        if Paragraph.objects.filter(count=0).count() > 0:
+            paragraph = Paragraph.objects.filter(count=0)[0]
+        elif Paragraph.objects.filter(count=1).count() > 0:
+            paragraph = Paragraph.objects.filter(count=1)[0]
+        elif Paragraph.objects.filter(count=2).count() > 0:
+            paragraph = Paragraph.objects.filter(count=2)[0]
+        elif Paragraph.objects.filter(count=3).count() > 0:
+            paragraph = Paragraph.objects.filter(count=3)[0]
+        else:
+            paragraph = Paragraph(id="nothing", paragraph="nothing", count=404)
+        return render(request, "question.html", {"paragraph": paragraph})
 
     def post(self, request):
         if request.user.is_authenticated():
@@ -33,7 +36,8 @@ class QuestionView(View):
                     result.question = question
                     result.answer = answer
                     result.user = request.user
-                    result.paragraph = paragraph
+                    result.paragraph_id = paragraph_id
+                    result.paragraph = paragraph.paragraph
                     result.save()
                     return HttpResponseRedirect("/question/")
                 else:

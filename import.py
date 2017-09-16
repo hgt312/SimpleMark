@@ -14,7 +14,8 @@ def main():
     list = []
     f = open('results.txt')
     for line in f:
-        list.append(Paragraph(paragraph=line))
+        paragraph_id, paragraph = line.split(' ')
+        list.append(Paragraph(id=paragraph_id, paragraph=paragraph))
     f.close()
     Paragraph.objects.bulk_create(list)
 

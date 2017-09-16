@@ -7,8 +7,9 @@ from users.models import UserProfile
 
 # 段落信息模型
 class Paragraph(models.Model):
+    id = models.CharField(verbose_name="id", max_length=30, primary_key=True)
     paragraph = models.TextField(verbose_name="段落内容", default="")
-    count = models.IntegerField(verbose_name="使用统计", default=0)
+    count = models.IntegerField(verbose_name="计数", default=0)
 
     class Meta:
         verbose_name = "段落信息"
@@ -22,7 +23,8 @@ class Paragraph(models.Model):
 class Result(models.Model):
     question = models.TextField(verbose_name="问题内容")
     answer = models.TextField(verbose_name="答案内容")
-    paragraph = models.ForeignKey(Paragraph, verbose_name="段落")
+    paragraph_id = models.CharField(verbose_name="id", max_length=30, null=True, blank=True)
+    paragraph = models.TextField(verbose_name="段落")
     user = models.ForeignKey(UserProfile, verbose_name="用户")
 
     class Meta:
@@ -30,11 +32,11 @@ class Result(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.user.username + '-' + str(self.paragraph.id)
+        return self.user.username + '-' + self.paragraph_id
 
     def save(self, *args, **kwargs):
         try:
-            paragraph = Paragraph.objects.get(id=self.paragraph.id)
+            paragraph = Paragraph.objects.get(id=self.paragraph_id)
             paragraph.count += 1
             paragraph.save()
             user = UserProfile.objects.get(id=self.user.id)

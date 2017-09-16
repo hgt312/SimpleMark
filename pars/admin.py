@@ -11,7 +11,7 @@ class ResultAdmin(admin.ModelAdmin):
 
 
 class ParagraphAdmin(admin.ModelAdmin):
-    list_display = ('id', 'count')
+    list_display = ('id', 'paragraph')
 
 
 admin.site.register(Paragraph, ParagraphAdmin)
