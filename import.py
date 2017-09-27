@@ -7,20 +7,21 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SimpleMark.settings")
 django.setup()
 
 
-from pars.models import Paragraph
-
-
 def main():
-    list = []
-    f = open('results.txt')
-    for line in f:
-        paragraph_id, paragraph = line.split(' ')
-        list.append(Paragraph(id=paragraph_id, paragraph=paragraph))
-    f.close()
-    Paragraph.objects.bulk_create(list)
+    file_path = './data/'
+    all_files = os.listdir(file_path)
+    data_list = []
+    for file in all_files:
+        with open('data/' + file, 'r', encoding='utf-8') as f:
+            paragraph_id = file[:-4]
+            paragraph = f.read()
+            # print(paragraph_id, paragraph)
+            data_list.append(Paragraph(id=paragraph_id, paragraph=paragraph))
+    Paragraph.objects.bulk_create(data_list)
 
 
 if __name__ == "__main__":
+    from pars.models import Paragraph
     start_time = time()
     main()
     end_time = time()
