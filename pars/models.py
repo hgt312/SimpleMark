@@ -7,7 +7,7 @@ from users.models import UserProfile
 
 # 段落信息模型
 class Paragraph(models.Model):
-    id = models.CharField(verbose_name="id", max_length=30, primary_key=True)
+    id = models.CharField(verbose_name="id", max_length=100, primary_key=True)
     paragraph = models.TextField(verbose_name="段落内容", default="")
     count = models.IntegerField(verbose_name="计数", default=0)
 

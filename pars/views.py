@@ -46,3 +46,15 @@ class QuestionView(View):
                 return render(request, "question.html", {"msg": "问题或答案不可为空", "paragraph": paragraph})
         else:
             return HttpResponseRedirect('/')
+
+
+class SkipView(View):
+    def post(self, request):
+        if request.user.is_authenticated():
+            paragraph_id = request.POST.get("paragraph_id", "")
+            paragraph = Paragraph.objects.get(id=paragraph_id)
+            paragraph.count = 100
+            paragraph.save()
+            return HttpResponseRedirect("/question/")
+        else:
+            return HttpResponseRedirect('/')

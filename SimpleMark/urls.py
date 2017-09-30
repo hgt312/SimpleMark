@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from users.views import IndexView, LogoutView, RegisterView
-from pars.views import QuestionView
+from pars.views import QuestionView, SkipView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),
 
     url(r'^question/$', QuestionView.as_view(), name='question'),
+    url(r'^skip/$', SkipView.as_view(), name='skip'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
     url(r'^register/$', RegisterView.as_view(), name='register'),
 ]

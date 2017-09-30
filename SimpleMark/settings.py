@@ -83,10 +83,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'simple_mark',
-        'USER': 'root',
-        'PASSWORD': '123456',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '',
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        }
     }
 }
 

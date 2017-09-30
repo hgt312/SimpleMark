@@ -19,7 +19,7 @@ def main():
             data_list.append(Paragraph(id=paragraph_id, paragraph=paragraph))
 
         count += 1
-        if count % 10000 == 0:
+        if count % 5000 == 0:
             print('Done', count)
             Paragraph.objects.bulk_create(data_list)
             data_list = []

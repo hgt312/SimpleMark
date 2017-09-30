@@ -70,7 +70,11 @@
     <div class="panel panel-default">
       <div class="content">
         <button class="btn btn-primary show-win">答题说明</button>
-        <button class="btn btn-primary get-para">获取段落</button>
+        <button class="btn btn-primary get-para">跳过段落</button>
+        <form id="skip" method="post" action="{% url 'skip' %}" style="display: none">
+            <input value="{{ paragraph.id }}" name="paragraph_id">
+            {% csrf_token %}
+        </form>
 
         <h2>答题段落</h2>
         <hr>
@@ -124,7 +128,8 @@
     var getPara = document.getElementsByClassName("get-para")[0];
 
     getPara.onclick = function () {
-        window.location.reload();
+        document.getElementById("skip").submit();
+        return false
     }
   </script>
 </body>
