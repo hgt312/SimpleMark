@@ -244,4 +244,15 @@ p {
   .question .alert {
     width: 100%;
   }
+
+  .content-win {
+    width: 90%;
+    height: 80%;
+    top: 10%;
+    left: 5%;
+  }
+
+  .article {
+    height: 75%;
+  }
 }
