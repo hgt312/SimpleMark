@@ -48,3 +48,5 @@ python import.py
 ### 四、部署上线
 详见http://www.jianshu.com/p/75fa0f111a6d
 
+uwsgi --ini uwsgi.ini --daemonize /home/ubuntu/uwsgi.log
+
